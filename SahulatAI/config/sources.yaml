@@ -1,0 +1,57 @@
+# Trusted crawl sources for SahulatAI's knowledge base.
+# Add or remove URLs here. Only these domains will ever be crawled.
+#
+# source_type must be one of: official_website, official_pdf, secondary_source
+# (challenge_document sources are added separately via scripts/ingest_documents.py)
+
+allowed_domains:
+  - saylaniwelfare.com
+  - www.saylaniwelfare.com
+  - saylanimit.com
+  - www.saylanimit.com
+
+seed_urls:
+  # --- Saylani Welfare (main site) — real current URLs as of Aug 2026 ---
+  - url: "https://saylaniwelfare.com/"
+    source_type: official_website
+  - url: "https://saylaniwelfare.com/about/saylani-introduction"
+    source_type: official_website
+  - url: "https://saylaniwelfare.com/services"
+    source_type: official_website
+  - url: "https://saylaniwelfare.com/services/education/technical-education/saylani-mass-it-training"
+    source_type: official_website
+  - url: "https://saylaniwelfare.com/contact-us"
+    source_type: official_website
+  - url: "https://saylaniwelfare.com/donate"
+    source_type: official_website
+  - url: "https://saylaniwelfare.com/bank-details"
+    source_type: official_website
+
+  # --- Saylani Mass IT Training (SMIT) — separate official domain that hosts
+  # the actual courses/admission/enrollment content ---
+  - url: "https://www.saylanimit.com/"
+    source_type: official_website
+  - url: "https://www.saylanimit.com/about"
+    source_type: official_website
+  - url: "https://www.saylanimit.com/courses"
+    source_type: official_website
+  - url: "https://www.saylanimit.com/enroll"
+    source_type: official_website
+  - url: "https://www.saylanimit.com/campuses"
+    source_type: official_website
+  - url: "https://www.saylanimit.com/contact"
+    source_type: official_website
+
+# Any additional official PDFs (prospectuses, program brochures, etc.)
+official_pdfs: []
+
+crawl:
+  # NOTE: increased from depth 2 / 60 pages — the real site structure is
+  # deeper than originally assumed (e.g. individual course pages live at
+  # saylanimit.com/courses/<course-name>, one level below the courses list),
+  # and these sites have far more than 60 relevant pages total.
+  max_depth: 3
+  max_pages: 200
+  respect_robots_txt: true
+  timeout_seconds: 10
+  user_agent: "SahulatAI-Bot/1.0 (+local hackathon project; contact: dev@example.com)"

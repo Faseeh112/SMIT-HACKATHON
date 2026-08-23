@@ -1,0 +1,33 @@
+# Eligibility rules used by tools/eligibility.py.
+# Edit this file to add/change programs — no code changes needed.
+# Each program lists constraints; a request is "eligible" only if every
+# supplied field satisfies its constraint. Missing required fields make
+# the result "insufficient_information" rather than a guess.
+
+programs:
+  saylani_it_courses:
+    display_name: "Saylani Mass IT Training (SMIT)"
+    required_fields: [age, city]
+    rules:
+      min_age: 15
+      max_age: 45
+      allowed_cities: ["Karachi", "Lahore", "Islamabad", "Rawalpindi", "any"]
+      max_income: null   # no income restriction for IT courses
+
+  welfare_ration_support:
+    display_name: "Welfare Ration / Food Support"
+    required_fields: [city, income]
+    rules:
+      min_age: null
+      max_age: null
+      allowed_cities: ["any"]
+      max_income: 40000   # PKR/month household income ceiling (example figure)
+
+  welfare_medical_aid:
+    display_name: "Welfare Medical Assistance"
+    required_fields: [city]
+    rules:
+      min_age: null
+      max_age: null
+      allowed_cities: ["any"]
+      max_income: null
