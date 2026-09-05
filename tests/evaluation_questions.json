@@ -1,0 +1,23 @@
+{
+  "answerable": [
+    {"question": "What courses does SMIT offer?", "expects": "knowledge_base_answer"},
+    {"question": "What documents do I need for admission?", "expects": "knowledge_base_answer"},
+    {"question": "What welfare programs does Saylani run?", "expects": "knowledge_base_answer"},
+    {"question": "Is there a tuition fee for SMIT courses?", "expects": "knowledge_base_answer"},
+    {"question": "What is the Dastarkhwan program?", "expects": "knowledge_base_answer"}
+  ],
+  "unanswerable": [
+    {"question": "Who will win the next football World Cup?", "expects": "out_of_scope_refusal"},
+    {"question": "What is Saylani's exact annual revenue for 2025?", "expects": "not_found_refusal"},
+    {"question": "What's the capital of France?", "expects": "out_of_scope_refusal"},
+    {"question": "Can you write me a poem about the ocean?", "expects": "out_of_scope_refusal"},
+    {"question": "What is the CEO's personal phone number?", "expects": "not_found_refusal"}
+  ],
+  "tool_required": [
+    {"question": "I want to file a complaint about a cancelled class.", "expects_tool": "create_complaint"},
+    {"question": "Am I eligible for SMIT if I'm 20 and live in Karachi?", "expects_tool": "check_eligibility"},
+    {"question": "Please schedule a callback for tomorrow at 10am, my number is 0300-1234567.", "expects_tool": "schedule_callback"},
+    {"question": "I am 19, from Karachi, want to join a course, and please arrange a callback tomorrow.", "expects_tool": "check_eligibility+schedule_callback"},
+    {"question": "What are the admission requirements and please create a complaint because I cannot apply?", "expects_tool": "search_documents+create_complaint"}
+  ]
+}
