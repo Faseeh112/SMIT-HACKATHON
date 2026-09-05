@@ -37,8 +37,8 @@ streamlit-mic-recorder==0.0.8   # click-to-talk microphone widget (free, local)
 # --- Voice: Speech-to-Text (free/local fallback) ---
 SpeechRecognition==3.10.4       # wraps Google Web Speech free endpoint + local engines
 pydub==0.25.1                   # audio format handling for STT input
-PyAudio==0.2.14                  # local microphone capture, required for hands-free wake-word mode
-                                  # (Windows: `pip install PyAudio` uses a prebuilt wheel on modern pip/Python;
+#PyAudio==0.2.14                  # local microphone capture, required for hands-free wake-word mode
+PyAudio==0.2.14; platform_system == "Windows"                                  # (Windows: `pip install PyAudio` uses a prebuilt wheel on modern pip/Python;
                                   # if it fails to build, install the matching wheel from
                                   # https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio or run
                                   # `pip install pipwin && pipwin install pyaudio`)
